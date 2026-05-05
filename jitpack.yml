@@ -3,4 +3,4 @@ before_install:
   - sdk use java 19.0.2-open
 
 install:
-  - ./gradlew :flexible-adapter:publishToMavenLocal -Padapter -Pgroup=$GROUP -Pversion=$VERSION
+  - ./gradlew :flexible-adapter:publishToMavenLocal -Padapter -PskipSigning=true -Pgroup=$GROUP -Pversion=$VERSION

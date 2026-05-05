@@ -2,7 +2,7 @@ apply plugin: 'com.vanniktech.maven.publish'
 
 // NOTE: When "Unable to find variant to publish named release" try to wrap it in afterEvaluate
 mavenPublishing {
-    if (!versioning.name.endsWith('SNAPSHOT')) {
+    if (!versioning.name.endsWith('SNAPSHOT') && !project.hasProperty("skipSigning")) {
         signAllPublications()
     }
 
