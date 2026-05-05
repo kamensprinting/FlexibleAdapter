@@ -6,7 +6,10 @@ mavenPublishing {
         signAllPublications()
     }
 
-    coordinates(publishedGroupId, artifact, versioning.name)
+    def publicationGroupId = project.findProperty("group") ?: publishedGroupId
+    def publicationVersion = project.findProperty("version") ?: versioning.name
+
+    coordinates(publicationGroupId.toString(), artifact, publicationVersion.toString())
 
     pom {
         name = libraryName
